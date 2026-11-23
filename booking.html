@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>حجز موعد — عيادة نور لطب الأسنان</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'clinical-teal': '#0E7C7B',
+            'teal-bright': '#0D9488',
+            'teal-deep': '#00504F',
+            'soft-mint': '#E6F4F1',
+            'mint-tint': '#F0FDFA',
+            'cta-coral': '#C2410C',
+            'cta-coral-bright': '#EA580C',
+            'cta-coral-hover': '#9A3412',
+            'surface': '#FFFFFF',
+            'surface-alt': '#F8FAFC',
+            'on-surface': '#0F172A',
+            'on-surface-muted': '#475569',
+            'outline': '#CBD5E1',
+            'outline-subtle': '#E2E8F0',
+            'star-amber': '#F59E0B',
+            'success': '#0D9488',
+            'error': '#BA1A1A',
+          },
+          fontFamily: {
+            'cairo': ['"Cairo"', 'sans-serif'],
+            'tajawal': ['"Tajawal"', 'sans-serif'],
+          }
+        }
+      }
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-surface text-on-surface font-tajawal antialiased selection:bg-soft-mint selection:text-teal-deep">
+  <div class="min-h-screen flex flex-col">
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 bg-surface/95 backdrop-blur border-b border-outline-subtle shadow-sm">
+      <div class="max-w-7xl mx-auto px-5 md:px-8 h-20 flex items-center justify-between gap-4">
+        <a href="index.html" class="flex items-center gap-3 shrink-0">
+          <div class="w-10 h-10 rounded-lg bg-clinical-teal text-white flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-[22px]">dentistry</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-cairo font-bold text-base text-on-surface leading-tight">عيادة نور لطب الأسنان</span>
+            <span class="font-cairo text-xs text-clinical-teal">حجز المواعيد</span>
+          </div>
+        </a>
+
+        <nav class="hidden lg:flex items-center gap-8 font-cairo">
+          <a href="index.html" class="nav-link text-sm font-semibold text-on-surface-muted hover:text-clinical-teal transition-colors">الرئيسية</a>
+          <a href="services.html" class="nav-link text-sm font-semibold text-on-surface-muted hover:text-clinical-teal transition-colors">الخدمات</a>
+          <a href="doctors.html" class="nav-link text-sm font-semibold text-on-surface-muted hover:text-clinical-teal transition-colors">الأطباء</a>
+          <a href="index.html#technology" class="nav-link text-sm font-semibold text-on-surface-muted hover:text-clinical-teal transition-colors">التقنية والرعاية</a>
+          <a href="index.html#reviews" class="nav-link text-sm font-semibold text-on-surface-muted hover:text-clinical-teal transition-colors">آراء المرضى</a>
+          <a href="admin.html" class="nav-link text-sm font-semibold text-clinical-teal flex items-center gap-1 hover:text-teal-deep transition-colors">
+            <span class="material-symbols-outlined text-[16px]">admin_panel_settings</span>
+            لوحة الإدارة
+          </a>
+        </nav>
+
+        <div class="flex items-center gap-4">
+          <a href="tel:+966110000000" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-soft-mint text-teal-deep font-cairo font-semibold text-xs hover:bg-clinical-teal hover:text-white transition-colors">
+            <span class="material-symbols-outlined text-[16px]">call</span>
+            <span>966110000000+</span>
+          </a>
+          <button id="mobile-menu-toggle" type="button" class="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg bg-surface-alt border border-outline-subtle">
+            <span class="material-symbols-outlined text-[24px]">menu</span>
+          </button>
+        </div>
+      </div>
+
+      <nav id="mobile-nav" class="hidden lg:hidden border-t border-outline-subtle bg-surface px-6 py-4 space-y-3 font-cairo">
+        <a href="index.html" class="block py-2 text-on-surface hover:text-clinical-teal">الرئيسية</a>
+        <a href="services.html" class="block py-2 text-on-surface hover:text-clinical-teal">الخدمات العلاجية</a>
+        <a href="doctors.html" class="block py-2 text-on-surface hover:text-clinical-teal">فريق الأطباء</a>
+        <a href="booking.html" class="block py-2 text-cta-coral font-bold">صفحة الحجز الحالية</a>
+        <a href="admin.html" class="block py-2 text-clinical-teal font-semibold">لوحة الإدارة (Firebase)</a>
+      </nav>
+    </header>
+
+    <main class="flex-1 py-12 bg-surface-alt">
+      <div class="max-w-7xl mx-auto px-5 md:px-8">
+        
+        <!-- Header -->
+        <div class="max-w-3xl mb-8">
+          <span class="text-xs font-cairo font-semibold text-clinical-teal bg-soft-mint px-3.5 py-1.5 rounded-full border border-clinical-teal/20 inline-block mb-2">
+            حجز إلكتروني مؤكد عبر Firebase
+          </span>
+          <h1 class="font-cairo text-3xl md:text-4xl font-extrabold text-on-surface mb-2">
+            احجز موعدك في خطوات بسيطة
+          </h1>
+          <p class="text-on-surface-muted text-sm leading-relaxed">
+            املأ النموذج أدناه لتسجيل موعدك في نظام العيادة مباشرة، وسيتواصل معك منسق المواعيد للتأكيد في أقل من 15 دقيقة.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          <!-- Booking Form Card -->
+          <div class="lg:col-span-8 bg-surface rounded-2xl border border-outline-subtle p-6 md:p-8 shadow-sm">
+            <form id="booking-form" class="space-y-6">
+              
+              <!-- Personal Info -->
+              <div>
+                <h2 class="font-cairo font-bold text-base text-on-surface mb-3 flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-full bg-soft-mint text-clinical-teal flex items-center justify-center text-xs font-bold">1</span>
+                  المعلومات الشخصية
+                </h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <label class="flex flex-col gap-1.5 font-cairo">
+                    <span class="text-xs font-semibold text-on-surface">الاسم الكامل *</span>
+                    <input id="patient-name" type="text" required placeholder="أدخل اسمك الكريم" class="w-full rounded-lg border border-outline bg-surface px-4 py-3 text-sm text-on-surface focus:border-clinical-teal focus:ring-2 focus:ring-clinical-teal/20 focus:outline-none transition-colors">
+                  </label>
+
+                  <label class="flex flex-col gap-1.5 font-cairo">
+                    <span class="text-xs font-semibold text-on-surface">رقم الجوال *</span>
+                    <div class="relative flex items-center">
+                      <span class="material-symbols-outlined absolute right-3.5 text-clinical-teal text-[20px] pointer-events-none">call</span>
+                      <input id="patient-phone" type="tel" required placeholder="050 123 4567" dir="ltr" class="w-full rounded-lg border border-outline bg-surface pr-11 pl-4 py-3 text-right text-sm text-on-surface focus:border-clinical-teal focus:ring-2 focus:ring-clinical-teal/20 focus:outline-none transition-colors">
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Service & Doctor Selection -->
+              <div class="pt-4 border-t border-outline-subtle">
+                <h2 class="font-cairo font-bold text-base text-on-surface mb-3 flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-full bg-soft-mint text-clinical-teal flex items-center justify-center text-xs font-bold">2</span>
+                  اختيار الخدمة والطبيب
+                </h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <label class="flex flex-col gap-1.5 font-cairo">
+                    <span class="text-xs font-semibold text-on-surface">نوع الخدمة أو الاستشارة</span>
+                    <select id="booking-service" class="w-full rounded-lg border border-outline bg-surface px-4 py-3 text-sm text-on-surface focus:border-clinical-teal focus:ring-2 focus:ring-clinical-teal/20 focus:outline-none transition-colors">
+                      <option value="الفحص الشامل والوقاية">الفحص الشامل والوقاية</option>
+                      <option value="تجميل الأسنان والعدسات">تجميل الأسنان والعدسات (الفينير)</option>
+                      <option value="زراعة الأسنان الفورية">زراعة الأسنان الفورية</option>
+                      <option value="تقويم الأسنان الشفاف">تقويم الأسنان الشفاف</option>
+                      <option value="تبييض الأسنان الآمن">تبييض الأسنان بالليزر</option>
+                      <option value="علاج عصب الأسنان وجذورها">علاج عصب الأسنان وجذورها</option>
+                      <option value="حشوات تجميلية للأسنان">حشوات تجميلية</option>
+                      <option value="علاج أسنان الأطفال">علاج أسنان الأطفال</option>
+                    </select>
+                  </label>
+
+                  <label class="flex flex-col gap-1.5 font-cairo">
+                    <span class="text-xs font-semibold text-on-surface">الطبيب المفضل (اختياري)</span>
+                    <select id="booking-doctor" class="w-full rounded-lg border border-outline bg-surface px-4 py-3 text-sm text-on-surface focus:border-clinical-teal focus:ring-2 focus:ring-clinical-teal/20 focus:outline-none transition-colors">
+                      <option value="أي طبيب متاح">أي طبيب متاح (أقرب موعد ممكن)</option>
+                      <option value="د. ليلى المنصور">د. ليلى المنصور (تجميل وتركيبات)</option>
+                      <option value="د. طارق العتيبي">د. طارق العتيبي (زراعة وجراحة)</option>
+                      <option value="د. سارة الحربي">د. سارة الحربي (تقويم شفاف)</option>
+                    </select>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Date & Time Slot -->
+              <div class="pt-4 border-t border-outline-subtle">
+                <h2 class="font-cairo font-bold text-base text-on-surface mb-3 flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-full bg-soft-mint text-clinical-teal flex items-center justify-center text-xs font-bold">3</span>
+                  الموعد والتوقيت المفضل
+                </h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <label class="flex flex-col gap-1.5 font-cairo">
+                    <span class="text-xs font-semibold text-on-surface">تاريخ الموعد</span>
+                    <input id="booking-date" type="date" class="w-full rounded-lg border border-outline bg-surface px-4 py-3 text-sm text-on-surface focus:border-clinical-teal focus:ring-2 focus:ring-clinical-teal/20 focus:outline-none transition-colors">
+                  </label>
+
+                  <label class="flex flex-col gap-1.5 font-cairo">
+                    <span class="text-xs font-semibold text-on-surface">الفترة المفضلة</span>
+                    <select id="booking-time" class="w-full rounded-lg border border-outline bg-surface px-4 py-3 text-sm text-on-surface focus:border-clinical-teal focus:ring-2 focus:ring-clinical-teal/20 focus:outline-none transition-colors">
+                      <option value="الفترة الصباحية (9 ص - 1 م)">الفترة الصباحية (9:00 ص - 1:00 م)</option>
+                      <option value="فترة العصر (2 م - 5 م)">فترة العصر (2:00 م - 5:00 م)</option>
+                      <option value="الفترة المسائية (5 م - 9 م)">الفترة المسائية (5:00 م - 9:00 م)</option>
+                    </select>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Additional Notes -->
+              <div class="pt-4 border-t border-outline-subtle">
+                <label class="flex flex-col gap-1.5 font-cairo">
+                  <span class="text-xs font-semibold text-on-surface">ملاحظات أو أعراض خاصة (اختياري)</span>
+                  <textarea id="patient-notes" rows="3" placeholder="هل تعاني من ألم في سن معين أو حساسية لأدوية محددة؟" class="w-full rounded-lg border border-outline bg-surface px-4 py-3 text-sm text-on-surface focus:border-clinical-teal focus:ring-2 focus:ring-clinical-teal/20 focus:outline-none transition-colors"></textarea>
+                </label>
+              </div>
+
+              <!-- Submit -->
+              <div class="pt-4">
+                <button type="submit" class="w-full inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg bg-cta-coral text-white font-cairo font-bold text-base shadow-md hover:bg-cta-coral-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta-coral-bright transition-all">
+                  <span class="material-symbols-outlined text-[22px]">calendar_month</span>
+                  <span>تأكيد وإرسال الحجز إلى Firebase</span>
+                </button>
+              </div>
+            </form>
+
+            <!-- Success Box -->
+            <div id="booking-success" role="status" class="hidden mt-6 p-6 rounded-2xl bg-soft-mint border border-clinical-teal/25 text-teal-deep flex items-start gap-4">
+              <span class="material-symbols-outlined text-[32px] text-clinical-teal shrink-0">verified</span>
+              <div class="flex flex-col gap-2">
+                <h3 class="font-cairo font-bold text-lg text-teal-deep">تم تأكيد إرسال طلب الحجز بنجاح!</h3>
+                <p class="font-tajawal text-sm text-on-surface-muted leading-relaxed">
+                  تم تسجيل بياناتك وحفظها بنجاح في قاعدة بيانات Firebase. سيتواصل معك أحد منسقي العيادة هاتفياً لتثبيت وقت الزيارة الدقيق وتزويدك بكافة التعليمات.
+                </p>
+                <div class="text-xs font-mono bg-white px-3.5 py-2 rounded-lg border border-outline-subtle text-clinical-teal font-bold self-start mt-1">
+                  رقم مرجع الحجز: <span id="booking-reference-id">-</span>
+                </div>
+                <div class="pt-2 flex items-center gap-3">
+                  <a href="admin.html" class="inline-flex items-center gap-1 text-xs font-cairo font-bold text-clinical-teal hover:underline">
+                    <span class="material-symbols-outlined text-[16px]">visibility</span>
+                    مشاهدة الحجز في لوحة الإدارة
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Sidebar Reassurance -->
+          <div class="lg:col-span-4 space-y-6">
+            
+            <div class="bg-surface rounded-2xl border border-outline-subtle p-6 shadow-sm font-cairo">
+              <h3 class="font-bold text-base text-on-surface mb-4 flex items-center gap-2">
+                <span class="material-symbols-outlined text-clinical-teal text-[20px]">info</span>
+                مميزات الحجز الإلكتروني
+              </h3>
+              <ul class="space-y-3 text-xs text-on-surface-muted">
+                <li class="flex items-start gap-2.5">
+                  <span class="material-symbols-outlined text-teal-bright text-[18px] shrink-0">alarm_on</span>
+                  <span>أولوية الدخول دون انتظار في صالة الاستقبال.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="material-symbols-outlined text-teal-bright text-[18px] shrink-0">check_circle</span>
+                  <span>تأكيد الموعد عبر رسالة واتساب / اتصال رسمي.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="material-symbols-outlined text-teal-bright text-[18px] shrink-0">local_parking</span>
+                  <span>مواقف مجانية ومظللة لعملاء العيادة.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="material-symbols-outlined text-teal-bright text-[18px] shrink-0">health_and_safety</span>
+                  <span>إمكانية الدفع عبر التأمين الطبي المعتمد.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="bg-surface rounded-2xl border border-outline-subtle p-6 shadow-sm font-cairo">
+              <h3 class="font-bold text-base text-on-surface mb-3">هل لديك حالة طارئة؟</h3>
+              <p class="font-tajawal text-xs text-on-surface-muted leading-relaxed mb-4">
+                في حال وجود ألم حاد ومفاجئ، يرجى الاتصال مباشرة بخط الطوارئ لعيادتنا لتنسيق دخول فوري.
+              </p>
+              <a href="tel:+966110000000" class="inline-flex items-center justify-center gap-2 w-full py-3 rounded-lg bg-red-50 text-red-700 border border-red-200 font-bold text-xs hover:bg-red-100 transition-colors">
+                <span class="material-symbols-outlined text-[18px]">emergency</span>
+                <span>اتصال فوري بالطوارئ</span>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-on-surface text-white py-12">
+      <div class="max-w-7xl mx-auto px-5 md:px-8 flex flex-col md:flex-row items-center justify-between gap-6 font-cairo">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg bg-clinical-teal text-white flex items-center justify-center">
+            <span class="material-symbols-outlined text-[20px]">dentistry</span>
+          </div>
+          <span class="font-bold text-base">عيادة نور لطب الأسنان</span>
+        </div>
+        <p class="text-xs text-outline font-tajawal text-center md:text-right">
+          جميع الحقوق محفوظة © 2026 عيادة نور لطب الأسنان
+        </p>
+        <div class="flex items-center gap-6 text-xs text-outline">
+          <a href="index.html" class="hover:text-white transition-colors">الرئيسية</a>
+          <a href="services.html" class="hover:text-white transition-colors">الخدمات</a>
+          <a href="doctors.html" class="hover:text-white transition-colors">الأطباء</a>
+          <a href="booking.html" class="text-white transition-colors">احجز موعدك</a>
+          <a href="admin.html" class="text-teal-bright hover:text-white transition-colors">لوحة الإدارة</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <div id="toast-container"></div>
+  <script type="module" src="js/firebase-config.js"></script>
+  <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/booking.js"></script>
+</body>
+</html>

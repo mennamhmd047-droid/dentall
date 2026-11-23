@@ -1,0 +1,795 @@
+<!DOCTYPE html><html lang="ar" dir="rtl" class="scroll-smooth"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>عيادة طب الأسنان — رعاية لطيفة وابتسامة صحية</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'clinical-teal': '#0E7C7B',
+        'teal-bright': '#0D9488',
+        'teal-deep': '#00504F',
+        'soft-mint': '#E6F4F1',
+        'mint-tint': '#F0FDFA',
+        'cta-coral': '#C2410C',
+        'cta-coral-bright': '#EA580C',
+        'cta-coral-hover': '#9A3412',
+        'surface': '#FFFFFF',
+        'surface-alt': '#F8FAFC',
+        'on-surface': '#0F172A',
+        'on-surface-muted': '#475569',
+        'on-primary': '#FFFFFF',
+        'on-mint': '#003736',
+        'outline': '#CBD5E1',
+        'outline-subtle': '#E2E8F0',
+        'star-amber': '#F59E0B',
+        'success': '#0D9488',
+        'error': '#BA1A1A',
+      },
+      borderRadius: {
+        'sm': '8px',
+        'DEFAULT': '12px',
+        'md': '16px',
+        'lg': '20px',
+        'xl': '24px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section-sm': '48px',
+        'section-lg': '80px',
+        'page-margin': '24px',
+      },
+      fontFamily: {
+        'display': ['"Cairo"', 'sans-serif'],
+        'headline': ['"Cairo"', 'sans-serif'],
+        'title': ['"Cairo"', 'sans-serif'],
+        'body': ['"Tajawal"', 'sans-serif'],
+        'label': ['"Cairo"', 'sans-serif'],
+      },
+      fontSize: {
+        'display-lg': ['44px', { lineHeight: '58px', letterSpacing: '0px', fontWeight: '800' }],
+        'display-lg-mobile': ['30px', { lineHeight: '42px', letterSpacing: '0px', fontWeight: '800' }],
+        'headline-lg': ['34px', { lineHeight: '46px', letterSpacing: '0px', fontWeight: '700' }],
+        'headline-lg-mobile': ['26px', { lineHeight: '36px', letterSpacing: '0px', fontWeight: '700' }],
+        'headline-md': ['26px', { lineHeight: '36px', letterSpacing: '0px', fontWeight: '700' }],
+        'headline-sm': ['20px', { lineHeight: '30px', letterSpacing: '0px', fontWeight: '700' }],
+        'title-lg': ['18px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '700' }],
+        'title-md': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-lg': ['17px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['15px', { lineHeight: '25px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['13px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['15px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '700' }],
+        'label-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '600' }],
+        'label-sm': ['12px', { lineHeight: '16px', letterSpacing: '0px', fontWeight: '600' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'card-hover': '200ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'card-hover': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'card-hover': 'cubic-bezier(0.2, 0, 0, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&amp;family=Tajawal:wght@400;500;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1 !important;
+      box-sizing: content-box;
+      overflow: hidden;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased selection:bg-soft-mint selection:text-on-mint">
+  <div class="min-h-[1024px] flex flex-col" data-stitch-vh="min-h-[1024px]===min-h-screen">
+
+    <!-- 1. Sticky Top Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-surface border-b border-outline-subtle shadow-[0_2px_12px_-4px_rgba(15,23,42,0.05)]">
+      <div class="max-w-7xl mx-auto px-5 md:px-page-margin h-20 flex items-center justify-between gap-gutter-md">
+        <!-- Brand Logo -->
+        <a href="#hero" class="flex items-center gap-gutter-sm shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clinical-teal rounded">
+          <div class="w-10 h-10 rounded bg-clinical-teal text-on-primary flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-[22px]" aria-hidden="true">dentistry</span>
+          </div>
+          <div class="flex flex-col">
+            <span data-design-text-token="title-md" class="font-title text-title-md text-on-surface leading-tight">عيادة طب الأسنان</span>
+            <span data-design-text-token="label-sm" class="font-label text-label-sm text-clinical-teal">تجميل وزراعة وتقويم</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav aria-label="التنقل الرئيسي" class="hidden lg:flex items-center gap-gutter-xl">
+          <a href="#services" class="font-label text-label-md text-on-surface-muted hover:text-clinical-teal transition-colors duration-state-change">الخدمات</a>
+          <a href="#technology" class="font-label text-label-md text-on-surface-muted hover:text-clinical-teal transition-colors duration-state-change">التقنية والرعاية</a>
+          <a href="#doctors" class="font-label text-label-md text-on-surface-muted hover:text-clinical-teal transition-colors duration-state-change">الأطباء</a>
+          <a href="#reviews" class="font-label text-label-md text-on-surface-muted hover:text-clinical-teal transition-colors duration-state-change">آراء المرضى</a>
+          <a href="#faq" class="font-label text-label-md text-on-surface-muted hover:text-clinical-teal transition-colors duration-state-change">الأسئلة الشائعة</a>
+        </nav>
+
+        <!-- Location Indicator & Primary CTA -->
+        <div class="flex items-center gap-gutter-md shrink-0">
+          <div class="hidden xl:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-alt border border-outline-subtle text-on-surface-muted">
+            <span class="material-symbols-outlined text-[16px] text-clinical-teal" aria-hidden="true">location_on</span>
+            <span data-design-text-token="label-sm" class="font-label text-label-sm">الرياض • حي العليا</span>
+          </div>
+
+          <a href="#booking" data-component-id="button-nav-cta" data-component-type="button" data-component-variant="primary" class="inline-flex items-center justify-center gap-gutter-sm px-4 sm:px-5 py-2.5 rounded bg-cta-coral text-on-primary shadow-sm hover:bg-cta-coral-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta-coral-bright focus-visible:ring-offset-2 transition-colors duration-state-change ease-state-change whitespace-nowrap shrink-0">
+            <span class="material-symbols-outlined text-[18px]" aria-hidden="true">calendar_month</span>
+            <span data-design-text-token="label-lg" class="font-label text-label-lg">احجز موعدك</span>
+          </a>
+
+          <!-- Mobile Menu Button -->
+          <button id="mobile-menu-toggle" type="button" aria-label="فتح قائمة التنقل" aria-expanded="false" aria-controls="mobile-nav" class="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded bg-surface-alt text-on-surface border border-outline-subtle hover:bg-soft-mint hover:text-clinical-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clinical-teal shrink-0">
+            <span class="material-symbols-outlined text-[22px]" aria-hidden="true">menu</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation Drawer -->
+      <nav id="mobile-nav" aria-label="قائمة الجوال" class="hidden lg:hidden border-t border-outline-subtle bg-surface px-5 py-4">
+        <div class="flex flex-col gap-3">
+          <a href="#services" class="font-label text-label-lg text-on-surface py-1.5 hover:text-clinical-teal">الخدمات العلاجية</a>
+          <a href="#technology" class="font-label text-label-lg text-on-surface py-1.5 hover:text-clinical-teal">التقنية والرعاية</a>
+          <a href="#doctors" class="font-label text-label-lg text-on-surface py-1.5 hover:text-clinical-teal">فريق الأطباء</a>
+          <a href="#reviews" class="font-label text-label-lg text-on-surface py-1.5 hover:text-clinical-teal">آراء المرضى</a>
+          <a href="#faq" class="font-label text-label-lg text-on-surface py-1.5 hover:text-clinical-teal">الأسئلة الشائعة</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="flex-1">
+
+      <!-- 2. Hero Section -->
+      <section id="hero" class="bg-surface py-12 lg:py-section-lg overflow-hidden">
+        <div class="max-w-7xl mx-auto px-5 md:px-page-margin grid grid-cols-1 lg:grid-cols-12 gap-gutter-xl items-center">
+          <!-- Hero Copy -->
+          <div class="lg:col-span-6 flex flex-col gap-gutter-lg">
+            <div class="flex flex-wrap items-center gap-gutter-sm">
+              <!-- COMPONENT: badge-status -->
+              <span data-component-id="badge-status" data-component-type="badge" data-component-variant="status" role="status" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-soft-mint text-on-mint border border-clinical-teal/15">
+                <span class="material-symbols-outlined text-[16px] text-clinical-teal" aria-hidden="true">verified</span>
+                <span data-design-text-token="label-sm" class="font-label text-label-sm">أطباء مرخصون ومعتمدون</span>
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-mint-tint text-on-mint border border-clinical-teal/15">
+                <span class="material-symbols-outlined text-[16px] text-clinical-teal" aria-hidden="true">sentiment_satisfied</span>
+                <span data-design-text-token="label-sm" class="font-label text-label-sm">رعاية لطيفة بدون ألم</span>
+              </span>
+            </div>
+
+            <h1 data-design-text-token="display-lg" class="font-display text-display-lg-mobile lg:text-display-lg text-on-surface text-balance">
+              ابتسامة صحية تبدأ برعاية <span class="text-clinical-teal">لطيفة وموثوقة</span>
+            </h1>
+
+            <p data-design-text-token="body-lg" class="font-body text-body-lg text-on-surface-muted max-w-prose text-pretty">
+              نجمع بين أحدث تقنيات طب الأسنان الرقمي والاهتمام الإنساني الدافئ لنمنحك تجربة علاجية هادئة، مريحة، ونتائج طبيعية تدوم طويلاً لك ولعائلتك.
+            </p>
+
+            <!-- Dual CTAs -->
+            <div class="flex flex-wrap items-center gap-gutter-md pt-1">
+              <!-- COMPONENT: button-with-icon -->
+              <a href="#booking" data-component-id="button-with-icon" data-component-type="button" data-component-variant="with-icon" class="inline-flex items-center justify-center gap-gutter-sm px-7 py-3.5 rounded bg-cta-coral text-on-primary shadow-sm hover:bg-cta-coral-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta-coral-bright focus-visible:ring-offset-2 transition-colors duration-state-change ease-state-change whitespace-nowrap">
+                <span class="material-symbols-outlined text-[20px]" aria-hidden="true">calendar_month</span>
+                <span data-design-text-token="label-lg" class="font-label text-label-lg">احجز موعدك الآن</span>
+              </a>
+
+              <!-- COMPONENT: button-secondary -->
+              <a href="#services" data-component-id="button-secondary" data-component-type="button" data-component-variant="secondary" class="inline-flex items-center justify-center gap-gutter-sm px-7 py-3.5 rounded bg-soft-mint text-on-mint border border-clinical-teal/20 hover:bg-clinical-teal hover:text-on-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clinical-teal focus-visible:ring-offset-2 transition-colors duration-state-change ease-state-change whitespace-nowrap">
+                <span data-design-text-token="label-lg" class="font-label text-label-lg">استكشف العلاجات</span>
+              </a>
+            </div>
+
+            <!-- Trust Metrics Strip -->
+            <div class="grid grid-cols-3 gap-gutter-md pt-gutter-md border-t border-outline-subtle">
+              <div class="flex flex-col">
+                <span data-design-text-token="headline-sm" class="font-headline text-headline-sm text-clinical-teal tabular-nums">+12 عاماً</span>
+                <span data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted">خبرة طبية متخصصة</span>
+              </div>
+              <div class="flex flex-col">
+                <span data-design-text-token="headline-sm" class="font-headline text-headline-sm text-clinical-teal tabular-nums">4.9 / 5</span>
+                <span data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted">تقييم المرضى المعتمد</span>
+              </div>
+              <div class="flex flex-col">
+                <span data-design-text-token="headline-sm" class="font-headline text-headline-sm text-clinical-teal tabular-nums">3D</span>
+                <span data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted">تشخيص ومسح رقمي</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Visual -->
+          <div class="lg:col-span-6 relative">
+            <div class="relative rounded-lg overflow-hidden bg-soft-mint border border-outline-subtle shadow-[0_20px_45px_-15px_rgba(14,124,123,0.16)]">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrCprnIGezRyM-TX8aKWeopKluO-VVvOtGHlwrWmx02iEJsB28GSWhQ0SO3eAQyLH6cd_sJmED7qllGYq4iGrXUmFzbG35ZZS6Ld3OcqQ2RWTR3rrOluMdVGXvHXu42YMt6hNdDVp-ksnHabOH5LNz5AvRW_uxtivOQU5-68XETBBdzmfW7WRNHpI2j7w1q6x2lV5JtH5Yyx2ZDM2ZYfGPPOGtLj6G91dGuDGiKx4TJsY3r_xv2OZP29kQ" alt="مريضة تبتسم بثقة داخل صالة استقبال عيادة طب الأسنان المشرقة" class="w-full aspect-[4/3] object-cover">
+            </div>
+            <!-- Floating Reassurance Card -->
+            <div class="mt-4 sm:mt-0 sm:absolute sm:-bottom-5 sm:right-6 bg-surface rounded-md border border-outline-subtle px-5 py-3.5 shadow-[0_12px_30px_-8px_rgba(15,23,42,0.12)] flex items-center gap-gutter-md">
+              <div class="w-11 h-11 rounded-full bg-soft-mint text-clinical-teal flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-[22px]" style="font-variation-settings: &#39;FILL&#39; 1;" aria-hidden="true">shield_with_heart</span>
+              </div>
+              <div class="flex flex-col">
+                <span data-design-text-token="title-md" class="font-title text-title-md text-on-surface">معايير تعقيم عالمية</span>
+                <span data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted">بروتوكول أمان معتمد لكل زيارة</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Core Dental Services Grid -->
+      <section id="services" class="bg-surface-alt py-section-sm lg:py-section-lg border-y border-outline-subtle">
+        <div class="max-w-7xl mx-auto px-5 md:px-page-margin">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-gutter-md mb-10">
+            <div class="flex flex-col gap-2 max-w-2xl">
+              <span data-design-text-token="label-md" class="font-label text-label-md text-clinical-teal">خدماتنا العلاجية والتجميلية</span>
+              <h2 data-design-text-token="headline-lg" class="font-headline text-headline-lg-mobile lg:text-headline-lg text-on-surface text-balance">
+                رعاية متكاملة لصحة وجمال ابتسامتك
+              </h2>
+            </div>
+            <p data-design-text-token="body-md" class="font-body text-body-md text-on-surface-muted max-w-md text-balance">
+              خطط علاجية واضحة ومخصصة لكل مريض باستخدام أحدث التقنيات الرقمية وألطف أساليب العناية.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter-lg items-stretch">
+            <!-- Service 1 (Featured wide card: 2 cols on desktop) -->
+            <a href="#booking" data-component-id="card-featured" data-component-type="card" data-component-variant="interactive" class="md:col-span-2 group bg-surface rounded-lg border border-outline-subtle p-gutter-lg hover:border-clinical-teal/40 hover:bg-mint-tint/60 hover:shadow-[0_12px_28px_-10px_rgba(14,124,123,0.14)] transition-colors duration-card-hover ease-card-hover flex flex-col justify-between gap-gutter-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clinical-teal">
+              <div class="flex flex-col gap-gutter-md">
+                <div class="flex items-center justify-between gap-gutter-md">
+                  <div class="w-12 h-12 rounded bg-soft-mint text-clinical-teal flex items-center justify-center shrink-0">
+                    <span class="material-symbols-outlined text-[24px]" aria-hidden="true">medical_services</span>
+                  </div>
+                  <span class="px-3 py-1 rounded-full bg-soft-mint text-on-mint font-label text-label-sm">الخطوة الأولى لصحة الفم</span>
+                </div>
+                <div>
+                  <h3 data-design-text-token="title-lg" class="font-title text-title-lg text-on-surface mb-1.5">الفحص الشامل والوقاية</h3>
+                  <p data-design-text-token="body-md" class="font-body text-body-md text-on-surface-muted max-w-xl text-balance">
+                    فحص دقيق للأسنان واللثة بالأشعة الرقمية منخفضة الإشعاع، مع جلسة تنظيف لطيفة لإزالة الجير والتصبغات والحفاظ على صحة فمك على المدى الطويل.
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-center gap-1.5 text-clinical-teal font-label text-label-md pt-2">
+                <span data-design-text-token="label-md">احجز فحصك الدوري</span>
+                <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_back</span>
+              </div>
+            </a>
+
+            <!-- Service 2 -->
+            <a href="#booking" data-component-id="card-interactive" data-component-type="card" data-component-variant="interactive" class="group bg-surface rounded-lg border border-outline-subtle p-gutter-lg hover:border-clinical-teal/40 hover:bg-mint-tint/60 hover:shadow-[0_12px_28px_-10px_rgba(14,124,123,0.14)] transition-colors duration-card-hover ease-card-hover flex flex-col justify-between gap-gutter-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clinical-teal">
+              <div class="flex flex-col gap-gutter-md">
+                <div class="w-12 h-12 rounded bg-soft-mint text-clinical-teal flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-[24px]" aria-hidden="true">auto_awesome</span>
+                </div>
+                <div>
+                  <h3 data-design-text-token="title-lg" class="font-title text-title-lg text-on-surface mb-1.5">تجميل الأسنان والعدسات</h3>
+                  <p data-design-text-token="body-md" class="font-body text-body-md text-on-surface-muted text-balance">
+                    تصميم الابتسامة الرقمية والقشور الخزفية فائقة الرقة بمظهر طبيعي متناغم مع ملامح الوجه.
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-center gap-1.5 text-clinical-teal font-label text-label-md pt-2">
+                <span data-design-text-token="label-md">استكشف التجميل</span>
+                <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_back</span>
+              </div>
+            </a>
+
+            <!-- Service 3 -->
+            <a href="#booking" data-component-id="card-interactive" data-component-type="card" data-component-variant="interactive" class="group bg-surface rounded-lg border border-outline-subtle p-gutter-lg hover:border-clinical-teal/40 hover:bg-mint-tint/60 hover:shadow-[0_12px_28px_-10px_rgba(14,124,123,0.14)] transition-colors duration-card-hover ease-card-hover flex flex-col justify-between gap-gutter-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clinical-teal">
+              <div class="flex flex-col gap-gutter-md">
+                <div class="w-12 h-12 rounded bg-soft-mint text-clinical-teal flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-[24px]" aria-hidden="true">dentistry</span>
+                </div>
+                <div>
+                  <h3 data-design-text-token="title-lg" class="font-title text-title-lg text-on-surface mb-1.5">زراعة الأسنان الفورية</h3>
+                  <p data-design-text-token="body-md" class="font-body text-body-md text-on-surface-muted text-balance">
+                    تعويض دائم للأسنان المفقودة باستخدام الزراعة الموجهة ثلاثية الأبعاد بدقة عالية وراحة تامة.
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-center gap-1.5 text-clinical-teal font-label text-label-md pt-2">
+                <span data-design-text-token="label-md">تفاصيل الزراعة</span>
+                <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_back</span>
+              </div>
+            </a>
+
+            <!-- Service 4 -->
+            <a href="#booking" data-component-id="card-interactive" data-component-type="card" data-component-variant="interactive" class="group bg-surface rounded-lg border border-outline-subtle p-gutter-lg hover:border-clinical-teal/40 hover:bg-mint-tint/60 hover:shadow-[0_12px_28px_-10px_rgba(14,124,123,0.14)] transition-colors duration-card-hover ease-card-hover flex flex-col justify-between gap-gutter-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clinical-teal">
+              <div class="flex flex-col gap-gutter-md">
+                <div class="w-12 h-12 rounded bg-soft-mint text-clinical-teal flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-[24px]" aria-hidden="true">straighten</span>
+                </div>
+                <div>
+                  <h3 data-design-text-token="title-lg" class="font-title text-title-lg text-on-surface mb-1.5">تقويم الأسنان الشفاف</h3>
+                  <p data-design-text-token="body-md" class="font-body text-body-md text-on-surface-muted text-balance">
+                    قوالب شفافة مريحة وقابلة للإزالة لتصحيح اصطفاف الأسنان بهدوء ودون أسلاك مرئية.
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-center gap-1.5 text-clinical-teal font-label text-label-md pt-2">
+                <span data-design-text-token="label-md">خيارات التقويم</span>
+                <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_back</span>
+              </div>
+            </a>
+
+            <!-- Service 5 -->
+            <a href="#booking" data-component-id="card-interactive" data-component-type="card" data-component-variant="interactive" class="group bg-surface rounded-lg border border-outline-subtle p-gutter-lg hover:border-clinical-teal/40 hover:bg-mint-tint/60 hover:shadow-[0_12px_28px_-10px_rgba(14,124,123,0.14)] transition-colors duration-card-hover ease-card-hover flex flex-col justify-between gap-gutter-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clinical-teal">
+              <div class="flex flex-col gap-gutter-md">
+                <div class="w-12 h-12 rounded bg-soft-mint text-clinical-teal flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-[24px]" aria-hidden="true">wb_sunny</span>
+                </div>
+                <div>
+                  <h3 data-design-text-token="title-lg" class="font-title text-title-lg text-on-surface mb-1.5">تبييض الأسنان الآمن</h3>
+                  <p data-design-text-token="body-md" class="font-body text-body-md text-on-surface-muted text-balance">
+                    تفتيح لطيف وآمن للون الأسنان في جلسة واحدة بمواد تحمي المينا وتمنع الحساسية.
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-center gap-1.5 text-clinical-teal font-label text-label-md pt-2">
+                <span data-design-text-token="label-md">احجز جلسة تبييض</span>
+                <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_back</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Why Choose Us & Technology Section -->
+      <section id="technology" class="bg-surface py-section-sm lg:py-section-lg">
+        <div class="max-w-7xl mx-auto px-5 md:px-page-margin grid grid-cols-1 lg:grid-cols-12 gap-gutter-xl items-center">
+          <!-- Suite Image -->
+          <div class="lg:col-span-6">
+            <div class="rounded-lg overflow-hidden border border-outline-subtle bg-soft-mint shadow-[0_16px_36px_-12px_rgba(15,23,42,0.1)]">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrAAhXXWvcFNysm5nGEDbLoVYPo54GbAkofFMB0jM-1DmWwCzfIeHXK28kZSEt9V90CDZ7-2Z6RZpFWF8utx2FCFvuHji_SwarzkCBOYROq5amRov_IMJE0MIXltGmbMhs8Ip3mq4v0RffVMLStW5jvjYz_AN3HwPxqv-COunZfW8R47b0Up5-QCTK5g1Y94e35vNSHyoRXhga5DVGV2zkO75qndztLEvrvZizjiVRnpysqfgazU865TFFk" alt="غرفة علاج حديثة ومشرقة مجهزة بماسح ضوئي رقمي ثلاثي الأبعاد" class="w-full aspect-[4/3] object-cover">
+            </div>
+          </div>
+
+          <!-- Pillars & Care Steps -->
+          <div class="lg:col-span-6 flex flex-col gap-gutter-lg">
+            <div class="flex flex-col gap-2">
+              <span data-design-text-token="label-md" class="font-label text-label-md text-clinical-teal">لماذا يختارنا المرضى</span>
+              <h2 data-design-text-token="headline-lg" class="font-headline text-headline-lg-mobile lg:text-headline-lg text-on-surface text-balance">
+                تقنية دقيقة وشفافية كاملة في كل خطوة
+              </h2>
+              <p data-design-text-token="body-md" class="font-body text-body-md text-on-surface-muted text-pretty">
+                صممنا عيادتنا لتشعر بالاطمئنان منذ لحظة دخولك؛ نوضح لك التشخيص بالصور الرقمية ونشاركك التكلفة وخطة العلاج قبل البدء.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-gutter-md">
+              <div class="p-4 rounded-md bg-mint-tint border border-clinical-teal/15 flex flex-col gap-1.5">
+                <span class="material-symbols-outlined text-[24px] text-clinical-teal" aria-hidden="true">3d_rotation</span>
+                <h3 data-design-text-token="title-md" class="font-title text-title-md text-on-surface">ماسح رقمي ثلاثي الأبعاد</h3>
+                <p data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted text-balance">طبعات رقمية دقيقة بدون قوالب السيليكون المزعجة.</p>
+              </div>
+
+              <div class="p-4 rounded-md bg-mint-tint border border-clinical-teal/15 flex flex-col gap-1.5">
+                <span class="material-symbols-outlined text-[24px] text-clinical-teal" aria-hidden="true">clean_hands</span>
+                <h3 data-design-text-token="title-md" class="font-title text-title-md text-on-surface">تعقيم صارم ومعتمد</h3>
+                <p data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted text-balance">دورات تعقيم آلية لكل أداة وفحص جودة يومي.</p>
+              </div>
+
+              <div class="p-4 rounded-md bg-mint-tint border border-clinical-teal/15 flex flex-col gap-1.5">
+                <span class="material-symbols-outlined text-[24px] text-clinical-teal" aria-hidden="true">healing</span>
+                <h3 data-design-text-token="title-md" class="font-title text-title-md text-on-surface">تخدير لطيف بدون ألم</h3>
+                <p data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted text-balance">تخدير موضعي ذكي يمنحك زيارة هادئة ومريحة.</p>
+              </div>
+
+              <div class="p-4 rounded-md bg-mint-tint border border-clinical-teal/15 flex flex-col gap-1.5">
+                <span class="material-symbols-outlined text-[24px] text-clinical-teal" aria-hidden="true">receipt_long</span>
+                <h3 data-design-text-token="title-md" class="font-title text-title-md text-on-surface">أسعار واضحة مسبقاً</h3>
+                <p data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted text-balance">تفصيل شفاف للتكلفة وخيارات الدفع قبل العلاج.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Meet the Doctors Section -->
+      <section id="doctors" class="bg-surface-alt py-section-sm lg:py-section-lg border-y border-outline-subtle">
+        <div class="max-w-7xl mx-auto px-5 md:px-page-margin">
+          <div class="flex flex-col gap-2 max-w-2xl mb-10">
+            <span data-design-text-token="label-md" class="font-label text-label-md text-clinical-teal">نخبة الاستشاريين</span>
+            <h2 data-design-text-token="headline-lg" class="font-headline text-headline-lg-mobile lg:text-headline-lg text-on-surface text-balance">
+              فريق طبي يجمع الخبرة بالرعاية الإنسانية
+            </h2>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter-lg items-stretch">
+            <!-- Doctor 1 -->
+            <!-- COMPONENT: card-action -->
+            <article data-component-id="card-action" data-component-type="card" data-component-variant="action" class="bg-surface rounded-lg border border-outline-subtle overflow-hidden shadow-[0_10px_30px_-10px_rgba(15,23,42,0.06)] flex flex-col justify-between">
+              <div>
+                <div class="bg-soft-mint overflow-hidden">
+                  <img src="https://lh3.googleusercontent.com/aida/ALJJyrCuV3AwHQpBPoHdBj6DqiDrOgqP9pmoSMPuOX4ToklEqzsERoER6riRF2ejNR4TkPUcKnhLtpnq1XkA_DlpDa56vcYKQ9hj6bER0wLpO9AKAw_2tfd7AqGfvThRKPnvX-471qiYut2hOkRbjVabKza0stBNDXq5C7STBQmYs98416-u93i8rFF1KoQSGyXSxnid-Qw8cWBmTtADCC9sWmSK8x-AZ70fqTwiDuihENKYmRb4hQ" alt="د. ليلى المنصور — استشارية تجميل الأسنان" class="w-full aspect-[4/5] object-cover object-top">
+                </div>
+                <div class="p-gutter-lg flex flex-col gap-2">
+                  <div class="flex items-center justify-between gap-2">
+                    <h3 data-design-text-token="title-lg" class="font-title text-title-lg text-on-surface">د. ليلى المنصور</h3>
+                    <span class="px-2.5 py-0.5 rounded-full bg-soft-mint text-on-mint font-label text-label-sm tabular-nums">12 سنة خبرة</span>
+                  </div>
+                  <p data-design-text-token="label-md" class="font-label text-label-md text-clinical-teal">استشارية تجميل الأسنان والتركيبات</p>
+                  <p data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted text-balance">
+                    البورد السعودي في التركيبات وتصميم الابتسامة الرقمية بأدق التفاصيل الطبيعية.
+                  </p>
+                </div>
+              </div>
+              <footer class="px-gutter-lg pb-gutter-lg pt-3 border-t border-outline-subtle">
+                <a href="#booking" onclick="selectService(&#39;تجميل الأسنان والعدسات&#39;)" class="inline-flex items-center justify-between w-full text-clinical-teal font-label text-label-md hover:text-teal-deep transition-colors">
+                  <span data-design-text-token="label-md">احجز مع د. ليلى</span>
+                  <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_back</span>
+                </a>
+              </footer>
+            </article>
+
+            <!-- Doctor 2 -->
+            <article data-component-id="card-action" data-component-type="card" data-component-variant="action" class="bg-surface rounded-lg border border-outline-subtle overflow-hidden shadow-[0_10px_30px_-10px_rgba(15,23,42,0.06)] flex flex-col justify-between">
+              <div>
+                <div class="bg-soft-mint overflow-hidden">
+                  <img src="https://lh3.googleusercontent.com/aida/ALJJyrDJaI1Mr1YO5lfnXQIeXcUnoEGYRuhVdTLfW8ObYlPQgOZ5KjXiea350dZbjDTogl_02wZNiK0-kl0-iPstgY-ygLnHucemNqK56qjR8wdoAfGrCCVsFySP9s3q2CIB-CSg6w18r8zpGnJZe635fXAQv7-EcY6GkBacbWsZ6Np28RJfR27cyNpItIOLXNqA81Za2uPJ7TDrr5rc1zgfwTEks7ScfcpsxIWKGzNSmMySE72C9A" alt="د. طارق العتيبي — استشاري زراعة وجراحة الأسنان" class="w-full aspect-[4/5] object-cover object-top">
+                </div>
+                <div class="p-gutter-lg flex flex-col gap-2">
+                  <div class="flex items-center justify-between gap-2">
+                    <h3 data-design-text-token="title-lg" class="font-title text-title-lg text-on-surface">د. طارق العتيبي</h3>
+                    <span class="px-2.5 py-0.5 rounded-full bg-soft-mint text-on-mint font-label text-label-sm tabular-nums">15 سنة خبرة</span>
+                  </div>
+                  <p data-design-text-token="label-md" class="font-label text-label-md text-clinical-teal">استشاري زراعة وجراحة الفم والأسنان</p>
+                  <p data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted text-balance">
+                    زمالة ألمانية في الزراعة الفورية الموجهة رقمياً وعلاج الحالات المعقدة بدون ألم.
+                  </p>
+                </div>
+              </div>
+              <footer class="px-gutter-lg pb-gutter-lg pt-3 border-t border-outline-subtle">
+                <a href="#booking" onclick="selectService(&#39;زراعة الأسنان الفورية&#39;)" class="inline-flex items-center justify-between w-full text-clinical-teal font-label text-label-md hover:text-teal-deep transition-colors">
+                  <span data-design-text-token="label-md">احجز مع د. طارق</span>
+                  <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_back</span>
+                </a>
+              </footer>
+            </article>
+
+            <!-- Doctor 3 -->
+            <article data-component-id="card-action" data-component-type="card" data-component-variant="action" class="bg-surface rounded-lg border border-outline-subtle overflow-hidden shadow-[0_10px_30px_-10px_rgba(15,23,42,0.06)] flex flex-col justify-between">
+              <div>
+                <div class="bg-soft-mint overflow-hidden">
+                  <img src="https://lh3.googleusercontent.com/aida/ALJJyrCIl2natxbRPGJDZ3axJ_33bBrdm3LO_JQdC2AVGfQ8tT1Z1p0G3UUCZBrIrwu705daPiKqr3PX2l0kNaKBggBFpefODtcy95lfjwvvo9GvpCYHtu59mlkMw8hqRZ62XVLQFvmfuTbUWH8-RVRMoQHzXiwif0Pg1__4MEmVhJ_YwLX1lgwCJoNdU_1-iOIKyO4CQLjcU5QYcUwIsOWTRQ_4eHHOzv2u2xi8HHgi3mDkbsl0aQ" alt="د. سارة الحربي — أخصائية تقويم الأسنان" class="w-full aspect-[4/5] object-cover object-top">
+                </div>
+                <div class="p-gutter-lg flex flex-col gap-2">
+                  <div class="flex items-center justify-between gap-2">
+                    <h3 data-design-text-token="title-lg" class="font-title text-title-lg text-on-surface">د. سارة الحربي</h3>
+                    <span class="px-2.5 py-0.5 rounded-full bg-soft-mint text-on-mint font-label text-label-sm tabular-nums">10 سنوات خبرة</span>
+                  </div>
+                  <p data-design-text-token="label-md" class="font-label text-label-md text-clinical-teal">أخصائية تقويم الأسنان الشفاف</p>
+                  <p data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted text-balance">
+                    متخصصة في تقويم الأسنان الرقمي الشفاف للكبار واليافعين مع متابعة دورية مريحة.
+                  </p>
+                </div>
+              </div>
+              <footer class="px-gutter-lg pb-gutter-lg pt-3 border-t border-outline-subtle">
+                <a href="#booking" onclick="selectService(&#39;تقويم الأسنان الشفاف&#39;)" class="inline-flex items-center justify-between w-full text-clinical-teal font-label text-label-md hover:text-teal-deep transition-colors">
+                  <span data-design-text-token="label-md">احجز مع د. سارة</span>
+                  <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_back</span>
+                </a>
+              </footer>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. Patient Reviews & Social Proof -->
+      <section id="reviews" class="bg-surface py-section-sm lg:py-section-lg">
+        <div class="max-w-7xl mx-auto px-5 md:px-page-margin">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-gutter-md mb-10">
+            <div class="flex flex-col gap-2 max-w-xl">
+              <span data-design-text-token="label-md" class="font-label text-label-md text-clinical-teal">تجارب مرضانا</span>
+              <h2 data-design-text-token="headline-lg" class="font-headline text-headline-lg-mobile lg:text-headline-lg text-on-surface text-balance">
+                ثقة تتحدث عن نفسها في كل ابتسامة
+              </h2>
+            </div>
+
+            <div class="inline-flex items-center gap-gutter-md px-5 py-3 rounded-md bg-soft-mint border border-clinical-teal/15 self-start md:self-auto">
+              <div class="flex items-center gap-1 text-star-amber" aria-label="تقييم 5 من 5 نجوم">
+                <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: &#39;FILL&#39; 1;" aria-hidden="true">star</span>
+                <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: &#39;FILL&#39; 1;" aria-hidden="true">star</span>
+                <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: &#39;FILL&#39; 1;" aria-hidden="true">star</span>
+                <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: &#39;FILL&#39; 1;" aria-hidden="true">star</span>
+                <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: &#39;FILL&#39; 1;" aria-hidden="true">star</span>
+              </div>
+              <div class="flex items-baseline gap-1.5">
+                <span data-design-text-token="title-lg" class="font-title text-title-lg text-on-mint tabular-nums">4.9</span>
+                <span data-design-text-token="body-sm" class="font-body text-body-sm text-on-mint">من 1,240+ تقييم موثق</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter-lg items-stretch">
+            <article class="bg-surface-alt rounded-lg border border-outline-subtle p-gutter-lg flex flex-col justify-between gap-gutter-md">
+              <div class="flex flex-col gap-3">
+                <div class="flex items-center gap-0.5 text-star-amber" aria-hidden="true">
+                  <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: &#39;FILL&#39; 1;">star</span>
+                  <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: &#39;FILL&#39; 1;">star</span>
+                  <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: &#39;FILL&#39; 1;">star</span>
+                  <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: &#39;FILL&#39; 1;">star</span>
+                  <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: &#39;FILL&#39; 1;">star</span>
+                </div>
+                <h3 data-design-text-token="title-md" class="font-title text-title-md text-on-surface">«زيارة مريحة بدون أي توتر»</h3>
+                <p data-design-text-token="body-md" class="font-body text-body-md text-on-surface-muted text-pretty">
+                  كنت أخشى زيارة طبيب الأسنان لسنوات، لكن أسلوب د. ليلى الهادئ وشرحها لكل خطوة جعلني أشعر بالاطمئنان التام.
+                </p>
+              </div>
+              <footer class="pt-3 border-t border-outline-subtle flex items-center justify-between">
+                <span data-design-text-token="label-md" class="font-label text-label-md text-on-surface">نورة القحطاني</span>
+                <span data-design-text-token="body-sm" class="font-body text-body-sm text-clinical-teal">عدسات تجميلية</span>
+              </footer>
+            </article>
+
+            <article class="bg-surface-alt rounded-lg border border-outline-subtle p-gutter-lg flex flex-col justify-between gap-gutter-md">
+              <div class="flex flex-col gap-3">
+                <div class="flex items-center gap-0.5 text-star-amber" aria-hidden="true">
+                  <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: &#39;FILL&#39; 1;">star</span>
+                  <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: &#39;FILL&#39; 1;">star</span>
+                  <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: &#39;FILL&#39; 1;">star</span>
+                  <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: &#39;FILL&#39; 1;">star</span>
+                  <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: &#39;FILL&#39; 1;">star</span>
+                </div>
+                <h3 data-design-text-token="title-md" class="font-title text-title-md text-on-surface">«دقة عالية ونتيجة طبيعية»</h3>
+                <p data-design-text-token="body-md" class="font-body text-body-md text-on-surface-muted text-pretty">
+                  أجريت زراعة فورية مع د. طارق باستخدام المسح ثلاثي الأبعاد. العملية كانت أسرع وألطف مما توقعت وبمتابعة مستمرة.
+                </p>
+              </div>
+              <footer class="pt-3 border-t border-outline-subtle flex items-center justify-between">
+                <span data-design-text-token="label-md" class="font-label text-label-md text-on-surface">عبد العزيز الدوسري</span>
+                <span data-design-text-token="body-sm" class="font-body text-body-sm text-clinical-teal">زراعة الأسنان</span>
+              </footer>
+            </article>
+
+            <article class="bg-surface-alt rounded-lg border border-outline-subtle p-gutter-lg flex flex-col justify-between gap-gutter-md">
+              <div class="flex flex-col gap-3">
+                <div class="flex items-center gap-0.5 text-star-amber" aria-hidden="true">
+                  <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: &#39;FILL&#39; 1;">star</span>
+                  <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: &#39;FILL&#39; 1;">star</span>
+                  <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: &#39;FILL&#39; 1;">star</span>
+                  <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: &#39;FILL&#39; 1;">star</span>
+                  <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: &#39;FILL&#39; 1;">star</span>
+                </div>
+                <h3 data-design-text-token="title-md" class="font-title text-title-md text-on-surface">«تنظيم ممتاز والتزام بالمواعيد»</h3>
+                <p data-design-text-token="body-md" class="font-body text-body-md text-on-surface-muted text-pretty">
+                  العيادة نظيفة جداً ولا يوجد انتظار طويل. بدأت رحلة التقويم الشفاف مع د. سارة والنتيجة واضحة خلال أشهر قليلة.
+                </p>
+              </div>
+              <footer class="pt-3 border-t border-outline-subtle flex items-center justify-between">
+                <span data-design-text-token="label-md" class="font-label text-label-md text-on-surface">ريم الشهري</span>
+                <span data-design-text-token="body-sm" class="font-body text-body-sm text-clinical-teal">تقويم شفاف</span>
+              </footer>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. Appointment Booking & Contact Section -->
+      <section id="booking" class="bg-surface-alt py-section-sm lg:py-section-lg border-t border-outline-subtle">
+        <div class="max-w-7xl mx-auto px-5 md:px-page-margin grid grid-cols-1 lg:grid-cols-12 gap-gutter-xl items-start">
+
+          <!-- Booking Form -->
+          <div class="lg:col-span-7 bg-surface rounded-lg border border-outline-subtle p-gutter-lg md:p-gutter-xl shadow-[0_12px_32px_-12px_rgba(15,23,42,0.08)]">
+            <div class="flex flex-col gap-1.5 mb-6">
+              <span data-design-text-token="label-md" class="font-label text-label-md text-clinical-teal">حجز سريع خلال دقيقة</span>
+              <h2 data-design-text-token="headline-md" class="font-headline text-headline-md text-on-surface">احجز موعدك الآن</h2>
+              <p data-design-text-token="body-md" class="font-body text-body-md text-on-surface-muted">
+                أدخل بياناتك وسيتواصل معك فريق الاستقبال لتأكيد الموعد المناسب لك.
+              </p>
+            </div>
+
+            <form id="booking-form" class="grid grid-cols-1 sm:grid-cols-2 gap-gutter-md">
+              <!-- Name -->
+              <!-- COMPONENT: input-field-text -->
+              <label data-component-id="input-field-text" data-component-type="input-field" data-component-variant="text" class="flex flex-col gap-1.5">
+                <span data-design-text-token="label-md" class="font-label text-label-md text-on-surface">الاسم الكامل</span>
+                <input id="patient-name" type="text" required placeholder="مثال: سارة عبد الله" class="w-full rounded border border-outline bg-surface px-4 py-3 text-body-md text-on-surface placeholder:text-on-surface-muted/60 focus:border-clinical-teal focus:ring-2 focus:ring-clinical-teal/20 focus:outline-none transition-colors duration-state-change">
+              </label>
+
+              <!-- Phone -->
+              <!-- COMPONENT: input-field-icon -->
+              <label data-component-id="input-field-icon" data-component-type="input-field" data-component-variant="with-icon" class="flex flex-col gap-1.5">
+                <span data-design-text-token="label-md" class="font-label text-label-md text-on-surface">رقم الجوال</span>
+                <div class="relative flex items-center">
+                  <span aria-hidden="true" class="material-symbols-outlined absolute right-3.5 text-clinical-teal text-[20px] pointer-events-none">call</span>
+                  <input id="patient-phone" type="tel" required placeholder="050 123 4567" inputmode="tel" dir="ltr" class="w-full rounded border border-outline bg-surface pr-11 pl-4 py-3 text-right text-body-md text-on-surface placeholder:text-on-surface-muted/60 focus:border-clinical-teal focus:ring-2 focus:ring-clinical-teal/20 focus:outline-none transition-colors duration-state-change tabular-nums">
+                </div>
+              </label>
+
+              <!-- Service -->
+              <label class="flex flex-col gap-1.5">
+                <span data-design-text-token="label-md" class="font-label text-label-md text-on-surface">الخدمة المطلوبة</span>
+                <select id="booking-service" class="w-full rounded border border-outline bg-surface px-4 py-3 text-body-md text-on-surface focus:border-clinical-teal focus:ring-2 focus:ring-clinical-teal/20 focus:outline-none transition-colors duration-state-change">
+                  <option value="الفحص الشامل والوقاية">الفحص الشامل والوقاية</option>
+                  <option value="تجميل الأسنان والعدسات">تجميل الأسنان والعدسات</option>
+                  <option value="زراعة الأسنان الفورية">زراعة الأسنان الفورية</option>
+                  <option value="تقويم الأسنان الشفاف">تقويم الأسنان الشفاف</option>
+                  <option value="تبييض الأسنان الآمن">تبييض الأسنان الآمن</option>
+                </select>
+              </label>
+
+              <!-- Preferred Time -->
+              <label class="flex flex-col gap-1.5">
+                <span data-design-text-token="label-md" class="font-label text-label-md text-on-surface">الفترة المفضلة</span>
+                <select id="booking-time" class="w-full rounded border border-outline bg-surface px-4 py-3 text-body-md text-on-surface focus:border-clinical-teal focus:ring-2 focus:ring-clinical-teal/20 focus:outline-none transition-colors duration-state-change">
+                  <option value="الفترة الصباحية (9 ص - 1 م)">الفترة الصباحية (9 ص - 1 م)</option>
+                  <option value="فترة العصر (2 م - 5 م)">فترة العصر (2 م - 5 م)</option>
+                  <option value="الفترة المسائية (5 م - 9 م)">الفترة المسائية (5 م - 9 م)</option>
+                </select>
+              </label>
+
+              <div class="sm:col-span-2 pt-2">
+                <!-- COMPONENT: button-primary -->
+                <button type="submit" data-component-id="button-primary" data-component-type="button" data-component-variant="primary" class="w-full inline-flex items-center justify-center gap-gutter-sm px-gutter-lg py-3.5 rounded bg-cta-coral text-on-primary shadow-sm hover:bg-cta-coral-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta-coral-bright focus-visible:ring-offset-2 transition-colors duration-state-change ease-state-change">
+                  <span class="material-symbols-outlined text-[20px]" aria-hidden="true">check_circle</span>
+                  <span data-design-text-token="label-lg" class="font-label text-label-lg">تأكيد طلب الحجز</span>
+                </button>
+              </div>
+            </form>
+
+            <!-- Booking Confirmation Message -->
+            <div id="booking-success" role="status" class="hidden mt-5 p-4 rounded bg-soft-mint border border-clinical-teal/20 text-on-mint flex items-center gap-3">
+              <span class="material-symbols-outlined text-[24px] text-clinical-teal shrink-0" aria-hidden="true">task_alt</span>
+              <p data-design-text-token="body-md" class="font-body text-body-md">
+                تم استلام طلب حجزك بنجاح! سيتواصل معك فريق العيادة خلال 15 دقيقة لتأكيد الموعد.
+              </p>
+            </div>
+          </div>
+
+          <!-- Clinic Info & Contact Card -->
+          <div class="lg:col-span-5 flex flex-col gap-gutter-md">
+            <div class="bg-surface rounded-lg border border-outline-subtle p-gutter-lg flex flex-col gap-gutter-md">
+              <h3 data-design-text-token="title-lg" class="font-title text-title-lg text-on-surface">معلومات العيادة والتواصل</h3>
+
+              <div class="flex items-start gap-3">
+                <div class="w-10 h-10 rounded bg-soft-mint text-clinical-teal flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-[20px]" aria-hidden="true">location_on</span>
+                </div>
+                <div>
+                  <p data-design-text-token="label-md" class="font-label text-label-md text-on-surface">العنوان</p>
+                  <p data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted">طريق الملك فهد، حي العليا، برج النور الطبي، الدور الثالث — الرياض</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="w-10 h-10 rounded bg-soft-mint text-clinical-teal flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-[20px]" aria-hidden="true">schedule</span>
+                </div>
+                <div>
+                  <p data-design-text-token="label-md" class="font-label text-label-md text-on-surface">ساعات العمل</p>
+                  <p data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted tabular-nums">السبت – الخميس: 9:00 صباحاً – 9:00 مساءً</p>
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-outline-subtle grid grid-cols-2 gap-3">
+                <a href="tel:+966110000000" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded bg-soft-mint text-on-mint font-label text-label-md hover:bg-clinical-teal hover:text-on-primary transition-colors">
+                  <span class="material-symbols-outlined text-[18px]" aria-hidden="true">call</span>
+                  <span>اتصال مباشر</span>
+                </a>
+                <a href="#booking" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded bg-surface-alt border border-outline text-on-surface font-label text-label-md hover:border-clinical-teal hover:text-clinical-teal transition-colors">
+                  <span class="material-symbols-outlined text-[18px]" aria-hidden="true">chat</span>
+                  <span>محادثة فورية</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Compact FAQ Accordion -->
+            <div id="faq" class="bg-surface rounded-lg border border-outline-subtle p-gutter-lg flex flex-col gap-3">
+              <h3 data-design-text-token="title-lg" class="font-title text-title-lg text-on-surface mb-1">أسئلة شائعة</h3>
+
+              <details class="group border-b border-outline-subtle pb-3">
+                <summary class="flex items-center justify-between cursor-pointer list-none font-label text-label-md text-on-surface hover:text-clinical-teal">
+                  <span>هل تقبلون التأمين الطبي؟</span>
+                  <span class="material-symbols-outlined text-[20px] text-clinical-teal transition-transform group-open:rotate-180" aria-hidden="true">expand_more</span>
+                </summary>
+                <p data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted mt-2 text-balance">
+                  نعم، نعتمد أبرز شركات التأمين الطبي في المملكة مع إمكانية التقسيط الميسر للعلاجات التجميلية.
+                </p>
+              </details>
+
+              <details class="group border-b border-outline-subtle pb-3">
+                <summary class="flex items-center justify-between cursor-pointer list-none font-label text-label-md text-on-surface hover:text-clinical-teal">
+                  <span>هل يوجد مواقف سيارات متوفرة؟</span>
+                  <span class="material-symbols-outlined text-[20px] text-clinical-teal transition-transform group-open:rotate-180" aria-hidden="true">expand_more</span>
+                </summary>
+                <p data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted mt-2 text-balance">
+                  تتوفر مواقف مجانية ومظللة لمرضى العيادة في الطابق الأرضي من برج النور الطبي.
+                </p>
+              </details>
+
+              <details class="group">
+                <summary class="flex items-center justify-between cursor-pointer list-none font-label text-label-md text-on-surface hover:text-clinical-teal">
+                  <span>هل يمكن الحجز لحالات الطوارئ في نفس اليوم؟</span>
+                  <span class="material-symbols-outlined text-[20px] text-clinical-teal transition-transform group-open:rotate-180" aria-hidden="true">expand_more</span>
+                </summary>
+                <p data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted mt-2 text-balance">
+                  نخصص مواعيد يومية لحالات الطوارئ السنية لاستقبالكم فوراً.
+                </p>
+              </details>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-on-surface text-on-primary py-10">
+      <div class="max-w-7xl mx-auto px-5 md:px-page-margin flex flex-col md:flex-row items-center justify-between gap-gutter-md">
+        <div class="flex items-center gap-gutter-sm">
+          <div class="w-9 h-9 rounded bg-clinical-teal text-on-primary flex items-center justify-center">
+            <span class="material-symbols-outlined text-[20px]" aria-hidden="true">dentistry</span>
+          </div>
+          <span data-design-text-token="title-md" class="font-title text-title-md">عيادة طب الأسنان</span>
+        </div>
+
+        <p data-design-text-token="body-sm" class="font-body text-body-sm text-outline text-center md:text-right text-balance">
+          جميع الحقوق محفوظة © 2026 عيادة طب الأسنان
+        </p>
+
+        <div class="flex items-center gap-gutter-lg font-label text-label-sm text-outline">
+          <a href="#services" class="hover:text-on-primary transition-colors">الخدمات</a>
+          <a href="#doctors" class="hover:text-on-primary transition-colors">الأطباء</a>
+          <a href="#booking" class="hover:text-on-primary transition-colors">احجز موعدك</a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    (function () {
+      const toggle = document.getElementById('mobile-menu-toggle');
+      const mobileNav = document.getElementById('mobile-nav');
+      if (toggle && mobileNav) {
+        toggle.addEventListener('click', function () {
+          const isHidden = mobileNav.classList.contains('hidden');
+          mobileNav.classList.toggle('hidden', !isHidden);
+          toggle.setAttribute('aria-expanded', String(isHidden));
+        });
+      }
+
+      const form = document.getElementById('booking-form');
+      const successBox = document.getElementById('booking-success');
+      if (form && successBox) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          successBox.classList.remove('hidden');
+          form.reset();
+        });
+      }
+
+      window.selectService = function (serviceName) {
+        const select = document.getElementById('booking-service');
+        if (select) {
+          select.value = serviceName;
+        }
+      };
+    })();
+  </script>
+
+
+</body></html>

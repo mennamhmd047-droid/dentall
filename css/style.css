@@ -1,0 +1,236 @@
+/* ==========================================================================
+   Noor Dental Clinic — Custom Styles & Components
+   Arabic First (RTL) | Modern Healthcare Design System
+   ========================================================================== */
+
+:root {
+  --color-clinical-teal: #0E7C7B;
+  --color-teal-bright: #0D9488;
+  --color-teal-deep: #00504F;
+  --color-soft-mint: #E6F4F1;
+  --color-mint-tint: #F0FDFA;
+  --color-cta-coral: #C2410C;
+  --color-cta-coral-bright: #EA580C;
+  --color-cta-coral-hover: #9A3412;
+  --color-surface: #FFFFFF;
+  --color-surface-alt: #F8FAFC;
+  --color-on-surface: #0F172A;
+  --color-on-surface-muted: #475569;
+  --color-outline: #CBD5E1;
+  --color-outline-subtle: #E2E8F0;
+  --color-star-amber: #F59E0B;
+  --color-success: #0D9488;
+  --color-error: #BA1A1A;
+  --font-cairo: 'Cairo', sans-serif;
+  --font-tajawal: 'Tajawal', sans-serif;
+}
+
+/* Base Adjustments */
+html {
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-tajawal);
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  direction: rtl;
+}
+
+h1, h2, h3, h4, h5, h6, .font-cairo {
+  font-family: var(--font-cairo);
+}
+
+/* Material Symbols */
+.material-symbols-outlined {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  line-height: 1 !important;
+  box-sizing: content-box;
+  overflow: hidden;
+  white-space: nowrap;
+  direction: ltr;
+  vertical-align: middle;
+}
+
+/* Active Nav Links */
+.nav-link.active {
+  color: var(--color-clinical-teal) !important;
+  font-weight: 700;
+  position: relative;
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  right: 0;
+  left: 0;
+  height: 2px;
+  background-color: var(--color-clinical-teal);
+  border-radius: 9999px;
+}
+
+/* Toast Notifications */
+#toast-container {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 400px;
+  pointer-events: none;
+}
+
+.toast {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.15), 0 8px 10px -6px rgba(15, 23, 42, 0.1);
+  border: 1px solid var(--color-outline-subtle);
+  animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transition: all 0.2s ease;
+}
+
+.toast.toast-success {
+  border-right: 4px solid var(--color-teal-bright);
+}
+
+.toast.toast-error {
+  border-right: 4px solid var(--color-error);
+}
+
+.toast.toast-info {
+  border-right: 4px solid var(--color-clinical-teal);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+/* Interactive Card Effects */
+.interactive-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.interactive-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px -8px rgba(14, 124, 123, 0.12);
+  border-color: rgba(14, 124, 123, 0.3);
+}
+
+/* Status Badges */
+.badge-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--font-cairo);
+}
+
+.badge-pending {
+  background-color: #FEF3C7;
+  color: #92400E;
+  border: 1px solid #FDE68A;
+}
+
+.badge-confirmed {
+  background-color: var(--color-soft-mint);
+  color: var(--color-teal-deep);
+  border: 1px solid rgba(14, 124, 123, 0.2);
+}
+
+.badge-cancelled {
+  background-color: #FEE2E2;
+  color: #991B1B;
+  border: 1px solid #FECACA;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Loading Spinner */
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #ffffff;
+  animation: spin 0.8s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Floating WhatsApp / Quick Contact */
+.floating-action-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #25D366;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 9999px;
+  box-shadow: 0 8px 24px -4px rgba(37, 211, 102, 0.4);
+  font-family: var(--font-cairo);
+  font-weight: 600;
+  font-size: 14px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.floating-action-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 28px -4px rgba(37, 211, 102, 0.5);
+}

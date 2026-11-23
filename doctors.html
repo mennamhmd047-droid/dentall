@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>فريق الأطباء الاستشاريين — عيادة نور لطب الأسنان</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'clinical-teal': '#0E7C7B',
+            'teal-bright': '#0D9488',
+            'teal-deep': '#00504F',
+            'soft-mint': '#E6F4F1',
+            'mint-tint': '#F0FDFA',
+            'cta-coral': '#C2410C',
+            'cta-coral-bright': '#EA580C',
+            'cta-coral-hover': '#9A3412',
+            'surface': '#FFFFFF',
+            'surface-alt': '#F8FAFC',
+            'on-surface': '#0F172A',
+            'on-surface-muted': '#475569',
+            'outline': '#CBD5E1',
+            'outline-subtle': '#E2E8F0',
+            'star-amber': '#F59E0B',
+            'success': '#0D9488',
+            'error': '#BA1A1A',
+          },
+          fontFamily: {
+            'cairo': ['"Cairo"', 'sans-serif'],
+            'tajawal': ['"Tajawal"', 'sans-serif'],
+          }
+        }
+      }
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-surface text-on-surface font-tajawal antialiased selection:bg-soft-mint selection:text-teal-deep">
+  <div class="min-h-screen flex flex-col">
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 bg-surface/95 backdrop-blur border-b border-outline-subtle shadow-sm">
+      <div class="max-w-7xl mx-auto px-5 md:px-8 h-20 flex items-center justify-between gap-4">
+        <a href="index.html" class="flex items-center gap-3 shrink-0">
+          <div class="w-10 h-10 rounded-lg bg-clinical-teal text-white flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-[22px]">dentistry</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-cairo font-bold text-base text-on-surface leading-tight">عيادة نور لطب الأسنان</span>
+            <span class="font-cairo text-xs text-clinical-teal">الكادر الطبي</span>
+          </div>
+        </a>
+
+        <nav class="hidden lg:flex items-center gap-8 font-cairo">
+          <a href="index.html" class="nav-link text-sm font-semibold text-on-surface-muted hover:text-clinical-teal transition-colors">الرئيسية</a>
+          <a href="services.html" class="nav-link text-sm font-semibold text-on-surface-muted hover:text-clinical-teal transition-colors">الخدمات</a>
+          <a href="doctors.html" class="nav-link text-sm font-semibold text-clinical-teal">الأطباء</a>
+          <a href="index.html#technology" class="nav-link text-sm font-semibold text-on-surface-muted hover:text-clinical-teal transition-colors">التقنية والرعاية</a>
+          <a href="index.html#reviews" class="nav-link text-sm font-semibold text-on-surface-muted hover:text-clinical-teal transition-colors">آراء المرضى</a>
+          <a href="admin.html" class="nav-link text-sm font-semibold text-clinical-teal flex items-center gap-1 hover:text-teal-deep transition-colors">
+            <span class="material-symbols-outlined text-[16px]">admin_panel_settings</span>
+            لوحة الإدارة
+          </a>
+        </nav>
+
+        <div class="flex items-center gap-4">
+          <a href="booking.html" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-cta-coral text-white font-cairo font-bold text-sm shadow hover:bg-cta-coral-hover transition-colors">
+            <span class="material-symbols-outlined text-[18px]">calendar_month</span>
+            <span>احجز موعدك</span>
+          </a>
+          <button id="mobile-menu-toggle" type="button" class="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg bg-surface-alt border border-outline-subtle">
+            <span class="material-symbols-outlined text-[24px]">menu</span>
+          </button>
+        </div>
+      </div>
+
+      <nav id="mobile-nav" class="hidden lg:hidden border-t border-outline-subtle bg-surface px-6 py-4 space-y-3 font-cairo">
+        <a href="index.html" class="block py-2 text-on-surface hover:text-clinical-teal">الرئيسية</a>
+        <a href="services.html" class="block py-2 text-on-surface hover:text-clinical-teal">الخدمات العلاجية</a>
+        <a href="doctors.html" class="block py-2 text-clinical-teal font-bold">فريق الأطباء الاستشاريين</a>
+        <a href="booking.html" class="block py-2 text-cta-coral font-bold">حجز موعد جديد</a>
+        <a href="admin.html" class="block py-2 text-clinical-teal font-semibold">لوحة الإدارة (Firebase)</a>
+      </nav>
+    </header>
+
+    <main class="flex-1">
+      <!-- Breadcrumb & Header -->
+      <section class="bg-gradient-to-b from-soft-mint/60 to-surface py-12 border-b border-outline-subtle">
+        <div class="max-w-7xl mx-auto px-5 md:px-8 text-center flex flex-col items-center">
+          <span class="text-xs font-cairo font-semibold text-clinical-teal bg-soft-mint px-3.5 py-1.5 rounded-full border border-clinical-teal/20 mb-3">
+            استشاريون معتمدون وذوو خبرة عالمية
+          </span>
+          <h1 class="font-cairo text-3xl md:text-5xl font-extrabold text-on-surface mb-4">
+            نخبة أطباء عيادة نور
+          </h1>
+          <p class="text-on-surface-muted max-w-2xl text-base leading-relaxed">
+            فريق متكامل من الاستشاريين والأخصائيين المكرسين لصحة وجمال ابتسامتكم، مستندين إلى أعلى المعايير الطبية والاهتمام الإنساني الفائق.
+          </p>
+        </div>
+      </section>
+
+      <!-- Doctors Profiles -->
+      <section class="py-16">
+        <div class="max-w-7xl mx-auto px-5 md:px-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+
+            <!-- Doctor 1 -->
+            <article class="bg-surface rounded-2xl border border-outline-subtle overflow-hidden shadow-sm flex flex-col justify-between">
+              <div>
+                <div class="bg-soft-mint overflow-hidden relative">
+                  <img src="https://lh3.googleusercontent.com/aida/ALJJyrCuV3AwHQpBPoHdBj6DqiDrOgqP9pmoSMPuOX4ToklEqzsERoER6riRF2ejNR4TkPUcKnhLtpnq1XkA_DlpDa56vcYKQ9hj6bER0wLpO9AKAw_2tfd7AqGfvThRKPnvX-471qiYut2hOkRbjVabKza0stBNDXq5C7STBQmYs98416-u93i8rFF1KoQSGyXSxnid-Qw8cWBmTtADCC9sWmSK8x-AZ70fqTwiDuihENKYmRb4hQ" alt="د. ليلى المنصور" class="w-full aspect-[4/5] object-cover object-top">
+                  <span class="absolute top-3 right-3 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-cairo font-bold text-clinical-teal shadow-sm">
+                    استشارية معتمدة
+                  </span>
+                </div>
+                <div class="p-6 flex flex-col gap-3 font-cairo">
+                  <div class="flex items-center justify-between">
+                    <h2 class="font-bold text-xl text-on-surface">د. ليلى المنصور</h2>
+                    <span class="px-2.5 py-0.5 rounded-full bg-soft-mint text-teal-deep text-xs font-semibold tabular-nums">12 سنة خبرة</span>
+                  </div>
+                  <p class="text-sm font-semibold text-clinical-teal">استشارية تجميل الأسنان والتركيبات الثابتة</p>
+                  
+                  <div class="space-y-1.5 text-xs text-on-surface-muted font-tajawal pt-2 border-t border-outline-subtle">
+                    <p class="flex items-center gap-1.5">
+                      <span class="material-symbols-outlined text-teal-bright text-[16px]">school</span>
+                      البورد السعودي في إصلاح وتجميل الأسنان
+                    </p>
+                    <p class="flex items-center gap-1.5">
+                      <span class="material-symbols-outlined text-teal-bright text-[16px]">schedule</span>
+                      أيام التواجد: الأحد، الثلاثاء، الخميس (10 ص - 6 م)
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <footer class="p-6 pt-0">
+                <a href="booking.html?doctor=د.%20ليلى%20المنصور&service=تجميل%20الأسنان%20والعدسات" class="inline-flex items-center justify-center gap-2 w-full py-3 rounded-lg bg-soft-mint text-teal-deep font-cairo font-bold text-sm hover:bg-clinical-teal hover:text-white transition-colors">
+                  <span class="material-symbols-outlined text-[18px]">calendar_add_on</span>
+                  <span>احجز موعد مع د. ليلى</span>
+                </a>
+              </footer>
+            </article>
+
+            <!-- Doctor 2 -->
+            <article class="bg-surface rounded-2xl border border-outline-subtle overflow-hidden shadow-sm flex flex-col justify-between">
+              <div>
+                <div class="bg-soft-mint overflow-hidden relative">
+                  <img src="https://lh3.googleusercontent.com/aida/ALJJyrDJaI1Mr1YO5lfnXQIeXcUnoEGYRuhVdTLfW8ObYlPQgOZ5KjXiea350dZbjDTogl_02wZNiK0-kl0-iPstgY-ygLnHucemNqK56qjR8wdoAfGrCCVsFySP9s3q2CIB-CSg6w18r8zpGnJZe635fXAQv7-EcY6GkBacbWsZ6Np28RJfR27cyNpItIOLXNqA81Za2uPJ7TDrr5rc1zgfwTEks7ScfcpsxIWKGzNSmMySE72C9A" alt="د. طارق العتيبي" class="w-full aspect-[4/5] object-cover object-top">
+                  <span class="absolute top-3 right-3 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-cairo font-bold text-clinical-teal shadow-sm">
+                    استشاري جراحة وزراعة
+                  </span>
+                </div>
+                <div class="p-6 flex flex-col gap-3 font-cairo">
+                  <div class="flex items-center justify-between">
+                    <h2 class="font-bold text-xl text-on-surface">د. طارق العتيبي</h2>
+                    <span class="px-2.5 py-0.5 rounded-full bg-soft-mint text-teal-deep text-xs font-semibold tabular-nums">15 سنة خبرة</span>
+                  </div>
+                  <p class="text-sm font-semibold text-clinical-teal">استشاري زراعة وجراحة الفم والفكين</p>
+                  
+                  <div class="space-y-1.5 text-xs text-on-surface-muted font-tajawal pt-2 border-t border-outline-subtle">
+                    <p class="flex items-center gap-1.5">
+                      <span class="material-symbols-outlined text-teal-bright text-[16px]">school</span>
+                      الزمالة الألمانية في زراعة الأسنان الموجهة رقمياً
+                    </p>
+                    <p class="flex items-center gap-1.5">
+                      <span class="material-symbols-outlined text-teal-bright text-[16px]">schedule</span>
+                      أيام التواجد: السبت، الإثنين، الأربعاء (12 م - 8 م)
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <footer class="p-6 pt-0">
+                <a href="booking.html?doctor=د.%20طارق%20العتيبي&service=زراعة%20الأسنان%20الفورية" class="inline-flex items-center justify-center gap-2 w-full py-3 rounded-lg bg-soft-mint text-teal-deep font-cairo font-bold text-sm hover:bg-clinical-teal hover:text-white transition-colors">
+                  <span class="material-symbols-outlined text-[18px]">calendar_add_on</span>
+                  <span>احجز موعد مع د. طارق</span>
+                </a>
+              </footer>
+            </article>
+
+            <!-- Doctor 3 -->
+            <article class="bg-surface rounded-2xl border border-outline-subtle overflow-hidden shadow-sm flex flex-col justify-between">
+              <div>
+                <div class="bg-soft-mint overflow-hidden relative">
+                  <img src="https://lh3.googleusercontent.com/aida/ALJJyrCIl2natxbRPGJDZ3axJ_33bBrdm3LO_JQdC2AVGfQ8tT1Z1p0G3UUCZBrIrwu705daPiKqr3PX2l0kNaKBggBFpefODtcy95lfjwvvo9GvpCYHtu59mlkMw8hqRZ62XVLQFvmfuTbUWH8-RVRMoQHzXiwif0Pg1__4MEmVhJ_YwLX1lgwCJoNdU_1-iOIKyO4CQLjcU5QYcUwIsOWTRQ_4eHHOzv2u2xi8HHgi3mDkbsl0aQ" alt="د. سارة الحربي" class="w-full aspect-[4/5] object-cover object-top">
+                  <span class="absolute top-3 right-3 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-cairo font-bold text-clinical-teal shadow-sm">
+                    أخصائية تقويم
+                  </span>
+                </div>
+                <div class="p-6 flex flex-col gap-3 font-cairo">
+                  <div class="flex items-center justify-between">
+                    <h2 class="font-bold text-xl text-on-surface">د. سارة الحربي</h2>
+                    <span class="px-2.5 py-0.5 rounded-full bg-soft-mint text-teal-deep text-xs font-semibold tabular-nums">10 سنوات خبرة</span>
+                  </div>
+                  <p class="text-sm font-semibold text-clinical-teal">أخصائية تقويم الأسنان والفكين الشفاف</p>
+                  
+                  <div class="space-y-1.5 text-xs text-on-surface-muted font-tajawal pt-2 border-t border-outline-subtle">
+                    <p class="flex items-center gap-1.5">
+                      <span class="material-symbols-outlined text-teal-bright text-[16px]">school</span>
+                      ماجستير تقويم الأسنان، معتمدة في تقويم Invisalign
+                    </p>
+                    <p class="flex items-center gap-1.5">
+                      <span class="material-symbols-outlined text-teal-bright text-[16px]">schedule</span>
+                      أيام التواجد: يومياً ما عدا الجمعة (1 م - 9 م)
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <footer class="p-6 pt-0">
+                <a href="booking.html?doctor=د.%20سارة%20الحربي&service=تقويم%20الأسنان%20الشفاف" class="inline-flex items-center justify-center gap-2 w-full py-3 rounded-lg bg-soft-mint text-teal-deep font-cairo font-bold text-sm hover:bg-clinical-teal hover:text-white transition-colors">
+                  <span class="material-symbols-outlined text-[18px]">calendar_add_on</span>
+                  <span>احجز موعد مع د. سارة</span>
+                </a>
+              </footer>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Trust Reassurance -->
+      <section class="bg-surface-alt py-16 border-t border-outline-subtle">
+        <div class="max-w-5xl mx-auto px-5 text-center flex flex-col items-center gap-6">
+          <div class="w-14 h-14 rounded-full bg-clinical-teal text-white flex items-center justify-center shadow-sm">
+            <span class="material-symbols-outlined text-[28px]">verified_user</span>
+          </div>
+          <h2 class="font-cairo text-2xl md:text-3xl font-bold text-on-surface">
+            رعاية مستمرة ومتابعة شخصية لكل حالة
+          </h2>
+          <p class="text-on-surface-muted max-w-xl text-sm leading-relaxed">
+            يتابع كل طبيب مرضاه بشكل مباشر عبر سجل إلكتروني متكامل، للتأكد من راحة المريض التامة ومتابعة النتائج خطوة بخطوة.
+          </p>
+          <a href="booking.html" class="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg bg-cta-coral text-white font-cairo font-bold shadow hover:bg-cta-coral-hover transition-colors">
+            <span class="material-symbols-outlined text-[20px]">calendar_month</span>
+            <span>احجز موعدك مع طبيبك المفضل</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-on-surface text-white py-12">
+      <div class="max-w-7xl mx-auto px-5 md:px-8 flex flex-col md:flex-row items-center justify-between gap-6 font-cairo">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg bg-clinical-teal text-white flex items-center justify-center">
+            <span class="material-symbols-outlined text-[20px]">dentistry</span>
+          </div>
+          <span class="font-bold text-base">عيادة نور لطب الأسنان</span>
+        </div>
+        <p class="text-xs text-outline font-tajawal text-center md:text-right">
+          جميع الحقوق محفوظة © 2026 عيادة نور لطب الأسنان
+        </p>
+        <div class="flex items-center gap-6 text-xs text-outline">
+          <a href="index.html" class="hover:text-white transition-colors">الرئيسية</a>
+          <a href="services.html" class="hover:text-white transition-colors">الخدمات</a>
+          <a href="doctors.html" class="text-white transition-colors">الأطباء</a>
+          <a href="booking.html" class="hover:text-white transition-colors">احجز موعدك</a>
+          <a href="admin.html" class="text-teal-bright hover:text-white transition-colors">لوحة الإدارة</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <div id="toast-container"></div>
+  <script type="module" src="js/firebase-config.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

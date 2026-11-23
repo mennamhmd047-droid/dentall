@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة إدارة المواعيد — عيادة نور لطب الأسنان</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'clinical-teal': '#0E7C7B',
+            'teal-bright': '#0D9488',
+            'teal-deep': '#00504F',
+            'soft-mint': '#E6F4F1',
+            'mint-tint': '#F0FDFA',
+            'cta-coral': '#C2410C',
+            'cta-coral-bright': '#EA580C',
+            'cta-coral-hover': '#9A3412',
+            'surface': '#FFFFFF',
+            'surface-alt': '#F8FAFC',
+            'on-surface': '#0F172A',
+            'on-surface-muted': '#475569',
+            'outline': '#CBD5E1',
+            'outline-subtle': '#E2E8F0',
+            'star-amber': '#F59E0B',
+            'success': '#0D9488',
+            'error': '#BA1A1A',
+          },
+          fontFamily: {
+            'cairo': ['"Cairo"', 'sans-serif'],
+            'tajawal': ['"Tajawal"', 'sans-serif'],
+          }
+        }
+      }
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-surface-alt text-on-surface font-tajawal antialiased selection:bg-soft-mint selection:text-teal-deep min-h-screen flex flex-col">
+
+  <!-- Admin Navigation Bar -->
+  <header class="sticky top-0 z-50 bg-surface border-b border-outline-subtle shadow-sm">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 h-20 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg bg-clinical-teal text-white flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-[22px]">dentistry</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-cairo font-bold text-base text-on-surface leading-tight">عيادة نور لطب الأسنان</span>
+            <span class="font-cairo text-xs text-clinical-teal">لوحة تحكم الاستقبال والإدارة</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Live Connection Badge -->
+      <div id="live-indicator" class="hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-soft-mint text-xs font-cairo">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span class="text-teal-deep font-semibold">متصل بقاعدة بيانات Firebase</span>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="flex items-center gap-3 font-cairo text-xs">
+        <a href="index.html" class="inline-flex items-center gap-1 px-3 py-2 rounded-lg bg-surface-alt border border-outline-subtle text-on-surface hover:text-clinical-teal transition-colors">
+          <span class="material-symbols-outlined text-[16px]">home</span>
+          <span>الموقع الرئيسي</span>
+        </a>
+        <a href="booking.html" class="inline-flex items-center gap-1 px-3.5 py-2 rounded-lg bg-cta-coral text-white font-bold hover:bg-cta-coral-hover transition-colors">
+          <span class="material-symbols-outlined text-[16px]">add_circle</span>
+          <span>حجز جديد</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-7xl w-full mx-auto px-5 md:px-8 py-8 space-y-6">
+
+    <!-- Top Summary Stats -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 font-cairo">
+      
+      <!-- Total -->
+      <div class="bg-surface rounded-2xl border border-outline-subtle p-5 shadow-sm flex items-center justify-between">
+        <div>
+          <span class="text-xs text-on-surface-muted font-medium">إجمالي المواعيد المسجلة</span>
+          <h3 id="stat-total" class="text-3xl font-extrabold text-on-surface mt-1 tabular-nums">0</h3>
+        </div>
+        <div class="w-12 h-12 rounded-xl bg-soft-mint text-clinical-teal flex items-center justify-center">
+          <span class="material-symbols-outlined text-[26px]">calendar_month</span>
+        </div>
+      </div>
+
+      <!-- Pending -->
+      <div class="bg-surface rounded-2xl border border-outline-subtle p-5 shadow-sm flex items-center justify-between">
+        <div>
+          <span class="text-xs text-amber-700 font-medium">بانتظار التأكيد (Pending)</span>
+          <h3 id="stat-pending" class="text-3xl font-extrabold text-amber-600 mt-1 tabular-nums">0</h3>
+        </div>
+        <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center">
+          <span class="material-symbols-outlined text-[26px]">pending_actions</span>
+        </div>
+      </div>
+
+      <!-- Confirmed -->
+      <div class="bg-surface rounded-2xl border border-outline-subtle p-5 shadow-sm flex items-center justify-between">
+        <div>
+          <span class="text-xs text-emerald-700 font-medium">مواعيد مؤكدة (Confirmed)</span>
+          <h3 id="stat-confirmed" class="text-3xl font-extrabold text-emerald-600 mt-1 tabular-nums">0</h3>
+        </div>
+        <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+          <span class="material-symbols-outlined text-[26px]">check_circle</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Management Card -->
+    <div class="bg-surface rounded-2xl border border-outline-subtle shadow-sm overflow-hidden">
+      
+      <!-- Toolbar -->
+      <div class="p-5 border-b border-outline-subtle flex flex-col md:flex-row md:items-center justify-between gap-4">
+        
+        <!-- Search -->
+        <div class="relative w-full md:w-80">
+          <span class="material-symbols-outlined absolute right-3.5 top-2.5 text-gray-400 text-[20px] pointer-events-none">search</span>
+          <input id="admin-search" type="text" placeholder="بحث بالاسم أو رقم الجوال أو الخدمة..." class="w-full rounded-lg border border-outline bg-surface pr-10 pl-4 py-2 text-xs text-on-surface focus:border-clinical-teal focus:ring-2 focus:ring-clinical-teal/20 focus:outline-none">
+        </div>
+
+        <!-- Filter tabs -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-1 md:pb-0 font-cairo text-xs">
+          <button type="button" data-filter="all" class="filter-btn px-3.5 py-1.5 rounded-lg bg-clinical-teal text-white font-semibold transition-colors">
+            الكل
+          </button>
+          <button type="button" data-filter="pending" class="filter-btn px-3.5 py-1.5 rounded-lg bg-surface-alt border border-outline-subtle text-on-surface-muted hover:text-on-surface transition-colors">
+            قيد الانتظار
+          </button>
+          <button type="button" data-filter="confirmed" class="filter-btn px-3.5 py-1.5 rounded-lg bg-surface-alt border border-outline-subtle text-on-surface-muted hover:text-on-surface transition-colors">
+            المؤكدة
+          </button>
+          <button type="button" data-filter="cancelled" class="filter-btn px-3.5 py-1.5 rounded-lg bg-surface-alt border border-outline-subtle text-on-surface-muted hover:text-on-surface transition-colors">
+            الملغية
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Appointments Table -->
+      <div class="overflow-x-auto">
+        <table class="w-full text-right border-collapse">
+          <thead>
+            <tr class="bg-surface-alt text-on-surface-muted font-cairo text-xs border-b border-outline-subtle">
+              <th class="px-5 py-3 font-semibold">المريض</th>
+              <th class="px-5 py-3 font-semibold">الخدمة والطبيب</th>
+              <th class="px-5 py-3 font-semibold">التاريخ والتوقيت</th>
+              <th class="px-5 py-3 font-semibold">الحالة</th>
+              <th class="px-5 py-3 font-semibold">الإجراءات</th>
+            </tr>
+          </thead>
+          <tbody id="appointments-table-body" class="divide-y divide-outline-subtle text-xs">
+            <!-- Dynamic Content Injected by admin.js -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Empty State -->
+      <div id="empty-state" class="hidden p-12 text-center flex flex-col items-center justify-center font-cairo">
+        <div class="w-14 h-14 rounded-full bg-soft-mint text-clinical-teal flex items-center justify-center mb-3">
+          <span class="material-symbols-outlined text-[28px]">event_busy</span>
+        </div>
+        <h4 class="font-bold text-base text-on-surface mb-1">لا توجد مواعيد تطابق البحث أو الفلتر</h4>
+        <p class="font-tajawal text-xs text-on-surface-muted mb-4">عندما يقوم المرضى بحجز موعد من الموقع، ستظهر بياناتهم هنا فوراً وبشكل لحظي.</p>
+        <a href="booking.html" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-clinical-teal text-white text-xs font-bold hover:bg-teal-deep transition-colors">
+          <span class="material-symbols-outlined text-[16px]">add</span>
+          <span>تسجيل موعد تجريبي</span>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Firebase Info Card -->
+    <div class="bg-surface rounded-2xl border border-outline-subtle p-5 font-cairo text-xs text-on-surface-muted flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-clinical-teal text-[24px]">database</span>
+        <div>
+          <span class="font-bold text-on-surface">معلومات ربط Firebase:</span>
+          <span>المشروع: <code class="bg-surface-alt px-1.5 py-0.5 rounded text-clinical-teal font-mono">dental-6a394</code> | التخزين: Firestore Collection (<code class="font-mono">appointments</code>)</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href="https://console.firebase.google.com/project/dental-6a394/firestore" target="_blank" rel="noopener" class="text-clinical-teal font-bold hover:underline flex items-center gap-1">
+          <span>فتح لوحة تحكم Firebase</span>
+          <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="bg-surface border-t border-outline-subtle py-5 mt-auto">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 text-center text-xs text-on-surface-muted font-cairo">
+      عيادة نور لطب الأسنان — نظام إدارة الحجوزات المتصل بقاعدة بيانات Firebase
+    </div>
+  </footer>
+
+  <div id="toast-container"></div>
+  <script type="module" src="js/firebase-config.js"></script>
+  <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/admin.js"></script>
+</body>
+</html>
